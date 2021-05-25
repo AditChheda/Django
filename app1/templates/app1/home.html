@@ -1,0 +1,97 @@
+{% extends 'header.html' %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+
+    {% block header1 %}Profile{% endblock %}
+    {% block header2 %} Profile {% endblock %}
+
+    {% block body %} 
+
+      {% if user.is_authenticated %}
+
+        <div class="home-div1">
+        
+          {% for i in user_info%}
+
+            <div class="home-div1-display">
+              <table class="home-div1-table">
+                <tr>
+                  <td rowspan ="12" class="td-back-color">
+                    <a href="/media/{{i.Image}}" target="_blank" class="home-a-tag"><img src="/media/{{i.Image}}" alt="image" width="200vw" height="200vh" class="home-img"/></a>
+                  </td>
+                  <th>Name</th>
+                  <th>{{i.Name}}</th>
+                </tr>
+                <tr>
+                  <td>College</td>
+                  <td>{{i.College}}</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td>{{i.CollegeAddress}}</td>
+                </tr>
+                <tr>
+                  <td>Academic Year</td>
+                  <td>{{i.AcademicYear}}</td>
+                </tr>
+                <tr>
+                  <td>Department</td>
+                  <td>{{i.Department}}</td>
+                </tr>
+                <tr>
+                  <td>Division</td>
+                  <td>{{i.Division}}</td>
+                </tr>
+                <tr>
+                  <td>RollNo</td>
+                  <td>{{i.RollNo}}</td>
+                </tr>
+                <tr>
+                  <td>LinkedIn</td>
+                  <td> <a href="{{i.LinkedIn}}" target="_blank"> {{i.LinkedIn}} </a> </td>
+                </tr>
+                <tr>
+                  <td>Github</td>
+                  <td> <a href="{{i.GithubUrl}}" target="_blank"> {{i.GithubUrl}} </a> </td>
+                </tr>
+                <tr>
+                  <td>InstagramUrl</td>
+                  <td> <a href="{{i.InstagramUrl}}" target="_blank"> {{i.InstagramUrl}} </a></td>
+                </tr>
+                <tr>
+                  <td>Skills</td>
+                  <td>{{i.Skills}}</td>
+                </tr>
+                <tr>
+                  <td>Description</td>
+                  <td>{{i.Description}}</td>
+                </tr>
+              </table>
+            </div>
+            <br> <br>
+
+          {% endfor %}
+        
+        </div>
+
+      {% else %}
+
+        <div style="height: 40px;width: 500px;"></div>
+
+      {% endif %}
+
+    {% endblock %}
+
+  </body>
+
+</html>

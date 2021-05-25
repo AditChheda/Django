@@ -1,0 +1,84 @@
+{% extends 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  {% block header1 %}Search Result{% endblock %}
+  {% block body %} 
+    <div class="search-div1">
+      {% if search  %}
+      <p style="color: white; text-align:center;font-size:1.6em;background-color: rgb(90, 27, 238);">You Searched for <br>"{{search_filter}} : {{search}}"</p>
+      {% if result %}
+      {% for i in result %}
+      
+      <div class="home-div1-display">
+          <table class="home-div1-table">
+            <tr>
+              <td rowspan ="12" class="td-back-color">
+                <a href="/media/{{i.Image}}" target="_blank" class="home-a-tag"><img src="/media/{{i.Image}}" alt="image" width="200vw" height="200vh" class="home-img"/></a>
+              </td>
+              <th>Name</th>
+              <th>{{i.Name}}</th>
+            </tr>
+            <tr>
+              <td>College</td>
+              <td>{{i.College}}</td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>{{i.CollegeAddress}}</td>
+            </tr>
+            <tr>
+              <td>Academic Year</td>
+              <td>{{i.AcademicYear}}</td>
+            </tr>
+            <tr>
+              <td>Department</td>
+              <td>{{i.Department}}</td>
+            </tr>
+            <tr>
+              <td>Division</td>
+              <td>{{i.Division}}</td>
+            </tr>
+            <tr>
+              <td>RollNo</td>
+              <td>{{i.RollNo}}</td>
+            </tr>
+            <tr>
+              <td>LinkedIn</td>
+              <td> <a href="{{i.LinkedIn}}" target="_blank"> {{i.LinkedIn}} </a> </td>
+            </tr>
+            <tr>
+              <td>Github</td>
+              <td> <a href="{{i.GithubUrl}}" target="_blank"> {{i.GithubUrl}} </a> </td>
+            </tr>
+            <tr>
+              <td>InstagramUrl</td>
+              <td> <a href="{{i.InstagramUrl}}" target="_blank"> {{i.InstagramUrl}} </a></td>
+            </tr>
+            <tr>
+              <td>Skills</td>
+              <td>{{i.Skills}}</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td>{{i.Description}}</td>
+            </tr>
+          </table>
+        </div>
+
+      {% endfor %}
+      {% else %}
+      <p style="color: white; background-color: red; text-align: center;">RESULT NOT FOUND !</p>
+      {% endif %}
+    {% else %}
+    <p style="color: white; background-color: red; text-align: center;">You need to type in SEARCH BAR to get your RESULT !!!</p>
+    {% endif %}
+    </div>
+  {% endblock %}
+</body>
+</html>

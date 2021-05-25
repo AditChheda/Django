@@ -1,0 +1,129 @@
+{% extends 'header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    {% block header1 %}Profile{% endblock %}
+    {% block header2 %} Profile {% endblock %}
+
+    {% block body %} 
+
+    {% if messages %}
+
+      <div class="profile-body">
+        {% for message in messages %}
+          <h3 style="color:white;">{{message}}</h3>
+        {% endfor %}
+      </div>
+      <br>
+
+    {% endif %}
+
+    <div class="profile-body">
+    <p style="color: white; text-align:center;font-size:1.6em;">Profile Page</p>
+    <hr>
+        <form action="profile" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <label for="name">Name</label> <br>
+          <input type="text" name="name" id="name" size="90vw">
+          <hr>
+          <label for="college_name" >College</label><br>
+          <select name="college_name" id="college_name" >
+          
+            {% for i in CollegeName %}
+              <option value="{{i.CollegeName}}">{{i.CollegeName}}</option>
+            {% endfor %} 
+      
+          </select> 
+          <hr>
+          <br>
+          <label for="college_address">College Address</label><br>
+          <select name="college_address" id="college_address">
+          <option value="Mahavir Education Trust Chowk, W.T Patil Marg, Chembur, next to Duke's Company, Mumbai, Maharashtra 400088">Mahavir Education Trust Chowk, W.T Patil Marg, Chembur, next to Duke's Company, Mumbai, Maharashtra 400088</option>
+          <option value="Vidyanagar, Vidya Vihar East, Ghatkopar East, Mumbai, Maharashtra 400077">Vidyanagar, Vidya Vihar East, Ghatkopar East, Mumbai, Maharashtra 400077</option>
+          <option value="PL Lokhande Marg, Chembur West, Muncipal Labour Colony, Kurla, Mumbai, Maharashtra 400089">PL Lokhande Marg, Chembur West, Muncipal Labour Colony, Kurla, Mumbai, Maharashtra 400089</option>
+          <option value="7-50, Narayan Gajanan Acharya Marg Vaibhav Nagar, near Subhash Nagar, Chembur, Mumbai, Maharashtra 400071">7-50, Narayan Gajanan Acharya Marg Vaibhav Nagar, near Subhash Nagar, Chembur, Mumbai, Maharashtra 400071</option>
+          <option value="Chembur Naka, Mumbai - 400071 Maharashtra State, India">Chembur Naka, Mumbai - 400071 Maharashtra State, India</option>
+          <option value="PL Lokhande Marg, Chembur West, Rahul Nagar, Chedda Nagar, Mumbai, Maharashtra 400089">PL Lokhande Marg, Chembur West, Rahul Nagar, Chedda Nagar, Mumbai, Maharashtra 400089</option>
+          </select>
+          <hr>
+          <br>
+          <label for="year">Academic year</label><br>
+          <select name="year" id="year">
+            <option value="First Year">First Year</option>
+            <option value="Second Year">Second Year</option>
+            <option value="Third Year">Third Year</option>
+            <option value="Fourth Year">Fourth Year</option>
+          </select>
+          <hr>
+          <br>
+          <label for="department">Department</label><br>
+          <select name="department" id="department">
+            <option value="Computer Engineering">Computer Engineering</option>
+            <option value="Electronics Engineering">Electronics Engineering</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Electronics and Telecommunication">Electronics and Telecommunication</option>
+            <option value="General Science and Humanities">General Science and Humanities</option>
+          </select>
+          <hr>
+          <br>
+          <label for="division">Division</label><br>
+          <select name="division" id="division">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <hr>
+          <br>
+          <label for="roll_no">Roll No.</label><br>
+          <input type="number" name="roll_no" id="roll_no" size="3">
+          <hr>
+          <br>
+          <label for="linkedIn_url">LinkedIn Url</label><br>
+          <input type="url" name="linkedIn_url" id="linkedIn_url" size="90vw">
+          <hr>
+          <br>
+          <label for="github_url">Github Url</label><br>
+          <input type="url" name="github_url" id="github_url" size="90vw">
+          <hr>
+          <br>
+          <label for="instagram_url">Instagram Url</label><br>
+          <input type="url" name="instagram_url" id="instagram_url" size="90vw">
+          <hr>
+          <br>
+          <label for="skills">Skills</label><br>
+          <input type="text" name="skills" id="skills" size = "90w">
+          <hr>
+          <br>
+          <label for="description">Description about yourself</label><br>
+          <textarea name="description" id="description" cols="93" rows="2"></textarea>
+          <hr>
+          <br>
+          <input type="file" name="image" id="image" style="color:white">
+          <br> 
+          <hr>
+          <br>
+          <input type="submit" value="Submit" class="submit-button">
+          
+        </form>
+        <br>
+        
+      </div>
+      <br>
+    {% endblock %}
+  </body>
+
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+
+    <title>{% block header1 %}{% endblock %}</title>
+    
+    <style>
+
+      .header-ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        height: 36px;
+        line-height: 36px;
+      }
+
+      .header-li{
+        float: left;
+        padding: 0px 50px;
+        background-color: white;
+        margin: 0px 10px;
+      }
+
+      .header-li-search{
+        float: left;
+        padding: 0px 10px;
+        background-color: white;
+        margin: 0px 10px;
+        border-radius: 40px;
+        
+      }
+
+      .header-li-search-search{
+        border-radius: 0px 0px 0px 0px;
+        outline: none;
+        box-shadow: 0 0 7px 3px rgba(90, 27, 238, 0.2);
+      }
+
+      .header-li-search-submit{
+        border-radius: 52px 52px 52px 52px;
+        padding: 0 10px;
+        margin-left: 10px;
+        outline: none;
+        box-shadow: 0 0 7px 3px rgba(90, 27, 238, 0.2);
+      }
+
+      .header-li:hover{
+        background-color: white;
+        color: rgb(90, 27, 238);
+        border-radius: 52px;
+        box-shadow: 0px 0px 4px 2px rgb(90, 27, 238);
+        text-decoration: none;
+      }
+
+      .header-li:hover a{
+        color: rgb(90, 27, 238);
+        border-radius: 52px;
+        text-decoration: none;
+        box-shadow: 0 0 0px 0px rgb(90, 27, 238);
+      }
+
+      .header-a{
+        display: block;
+        text-decoration: none;
+        color: rgb(90, 27, 238);
+        padding: 0px 10px;
+        box-shadow: 0 0 5px 2px rgb(90, 27, 238);
+        border-radius: 25px;
+      }
+
+      .header-li-red{
+        float: left;
+        padding: 0px 40px;
+        background-color: white;
+        margin: 0px 10px;
+      }
+
+      .header-li-red:hover{
+        background-color: white;
+        color: red;
+        border-radius: 52px;
+        box-shadow: 0px 0px 4px 2px red;
+        text-decoration: none;
+      }
+
+      .header-li-red:hover a{
+        color: red;
+        border-radius: 52px;
+        text-decoration: none;
+        box-shadow: 0 0 0px 0px red;
+      }
+
+      .header-a-red{
+        display: block;
+        text-decoration: none;
+        color: red;
+        padding: 0px 10px;
+        box-shadow: 0 0 5px 2px red;
+        border-radius: 25px;
+      }
+
+      .header-select-search{
+        padding: 7px 0;
+        border-radius: 0px;
+        box-shadow: 0 0 7px 3px rgba(90, 27, 238, 0.2);
+      }
+
+      .header-select-search:focus{
+        outline: none;
+      }
+
+      body::-webkit-scrollbar, div::-webkit-scrollbar{
+        width: 12px;
+      }
+
+      body::-webkit-scrollbar-track, div::-webkit-scrollbar-track{
+        border: 7px solid white;
+        box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      body::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb{
+        background: linear-gradient(transparent, rgba(90, 27, 238, 1) 15%, rgba(247, 188, 28, 1) 95%);
+        border-radius: 6px;
+      }
+
+      body::-webkit-scrollbar-thumb:hover, div::-webkit-scrollbar-thumb:hover{
+        background: linear-gradient(transparent, rgba(247, 188, 28, 1) 15%, rgba(90, 27, 238, 1) 95%);
+      }
+
+      .white-links a{
+        text-decoration: none;
+        color: white;
+      }
+      
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Header of all webpages --> 
+    <div style="width: 95vw;"><br>
+      <div class="title-webpage" style="position: relative;left: 30px;">Student Profile</div><br>
+        <div>
+          <ul class="header-ul" style="position: relative;left: 30px;">
+            <li class="header-li"><a href="{% url 'home' %}" class="header-a">Home</a></li>
+
+            {% if user.is_authenticated %}
+              <li class="header-li"><a href="{% url 'profile' %}" class="header-a">Profile</a></li>
+              <li class="header-li-search">
+                <form action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <select name="search_filter" id="search_filter" class="header-select-search">
+                <option value="Name">Name</option>
+                <option value="College">College</option>
+                <option value="CollegeAddress">CollegeAddress</option>
+                <option value="AcademicYear">AcademicYear</option>
+                <option value="Department">Department</option>
+                <option value="Division">Division</option>
+                <option value="RollNo">RollNo</option>
+                <option value="LinkedIn">LinkedInUrl</option>
+                <option value="GithubUrl">GithubUrl</option>
+                <option value="InstagramUrl">InstagramUrl</option>
+                <option value="Skills">Skills</option>
+                </select>
+                <input type="search" name="search" id="search" class="header-li-search-search">
+                <input type="submit" value="Search" class="header-li-search-submit">
+                </form>
+              </li>
+              <li style="float: left; padding: 0px 50px; background-color: white; margin: 0px 10px;">
+                <span style="color: green">
+                  <b>Hello, {{user.first_name}}&nbsp;{{user.last_name}}</b>
+                </span>
+              </li>
+              <li class="header-li-red"><a href="{% url 'logout' %}" class="header-a-red">Logout</a></li>
+
+            {% else %}
+              <li class="header-li"><a href="{% url 'register' %}" class="header-a">Register</a></li>
+              <li class="header-li"><a href="{% url 'login' %}" class="header-a">Login</a></li>
+
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+      <hr style="border: 2px solid rgb(90, 27, 238);"><br>
+    </div>
+    <!-- Header of all webpages --> 
+
+    <!-- Body of home.html -->
+    <div>
+      {% block body %}
+      
+      {% endblock %}
+    </div>
+    <!-- Body of home.html -->
+
+    <!-- Footer of all webpages -->
+    <div style="margin: auto; margin-top: 40px; width: 95%; border: 4px solid  rgb(90, 27, 238);
+                border-radius: 7px; position: relative; bottom: 0px;">
+      <div class="flex-container">
+        <div>Developer<hr>
+        <ul>
+          <li>Adit Chheda</li>
+        </ul>
+        </div>
+        <div>Sitemap<hr>
+        <ul>
+          <li>Home Page</li>
+          <li>Register Form</li>
+          <li>Login Form</li>
+          <li>Profile Form</li>
+          <li>Search Form</li>
+        </ul>
+        </div>
+        <div>Follow me on<hr>
+        <ul class="white-links">
+          <a href="https://www.linkedin.com/in/adit-chheda-2b80041ab/" target="_blank"><li>Linked In</li></a>
+          <a href="https://www.instagram.com/adit_chheda__/" target="_blank"><li>Instagram</li></a>
+          <a href="https://github.com/AditChheda" target="_blank"><li>Github</li></a>
+        </ul>
+        </div>  
+      </div>
+      <div class="header-footer-inside-div2">
+        <h6>&copy; 2021 Copyright: Profile.com</h6>
+      </div>
+    </div>
+    <br>
+    <!-- Footer of all webpages -->
+
+  </body>
+
+</html>
