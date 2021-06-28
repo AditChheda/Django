@@ -1,0 +1,197 @@
+input, select, textarea {
+  border: 2px solid rgb(90, 27, 238);
+  border-radius: 7px;
+  color: rgb(90, 27, 238);
+}
+
+ /*input:focus, select:focus, textarea:focus{
+  background-color: orange;
+  color: black;
+} */
+
+label {
+  color:white;
+  font-size: 20px;
+}
+
+.submit-button{
+  background: linear-gradient(90deg, rgba(90, 27, 238, 1) 25%, rgba(247, 188, 28, 1) 95%);  
+  color:white;
+  border: 1px solid white; 
+  border-radius:7px;
+  padding: 5px 20px 5px 20px;
+  box-shadow: 0 0 4px 2px white;
+}
+
+.submit-button:hover{
+  box-shadow: 0 0 4px 4px white;
+  background: linear-gradient(90deg,rgba(247, 188, 28, 1) 25%, rgba(90, 27, 238, 1) 95%);  
+}
+
+.flex-container {
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  flex-direction: row;
+  border-radius: 3px 3px 0px 0px;
+}
+
+.flex-container > div {
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  font-size: 17px;
+  width: 33%;
+}
+
+.timepass1{
+  background-color: rgb(90, 27, 238);
+}
+
+.title-webpage{
+  margin: 0px 10px;
+  
+  color: white;
+  font-size:4vw;
+  text-align:center;
+  border-radius:40px;
+  background: linear-gradient(40deg, rgba(90, 27, 238, 1) 25%, rgba(247, 188, 28, 1) 95%);  
+}
+
+.profile-body{
+    margin: auto;
+    width: 95%;
+    border: 3px solid rgb(90, 27, 238);
+    border-radius: 12px;
+    padding: 0 2vw;
+    height: auto;
+    position: relative;
+    background-color: rgb(90, 27, 238);
+}
+
+.form-message-success{
+  border:2px solid rgb(10, 185, 121);
+}
+
+.form-message-failed{
+  border:2px solid rgb(211, 9, 9);
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.home-div1{
+    margin: auto;
+    width: 95%;
+    border: 3px solid rgb(90, 27, 238);
+    height: 90vh;
+    overflow: auto;
+    
+}
+
+.home-div1-display{
+  padding: 3px;
+  margin: 10px;  
+}
+
+.home-div1-table{
+  border: 3px 3px 3px 0px solid rgb(90, 27, 238); 
+}
+
+th, td{
+  border: 2px solid rgb(90, 27, 238);
+  padding: 7px;
+  margin:7px;
+  color: rgb(90, 27, 238);
+}
+
+th:nth-child(3){
+  width: 65vw;
+}
+
+th:nth-child(1){
+  width: 60vw;
+}
+
+.home-a-tag{
+  text-decoration: none;
+}
+
+.td-back-color{
+  background: linear-gradient(270deg, rgba(247, 188, 28, 1) 15%, rgba(90, 27, 238, 1) 95%);
+  text-decoration: none;
+}
+
+.home-img{
+  border: 5px solid white;
+  border-radius: 110px;
+  box-shadow: 0 0 10px 4px white;
+}
+
+th:hover, td:hover{
+  background-color: rgb(90, 27, 238);
+  color: white;
+}
+
+th a, td a{
+  color:rgb(90, 27, 238);
+  text-decoration: none;
+}
+
+th:hover a, td:hover a{
+  background-color: rgb(90, 27, 238);
+  color: white;
+  text-decoration: none;
+}
+
+.register-div1{
+    margin: auto;
+    width: 95%;
+    border: 3px solid rgb(90, 27, 238);
+    border-radius: 12px;
+    padding: 2vw;
+    background-color: rgb(90, 27, 238);
+}
+
+.login-div1{
+    margin: auto;
+    width: 95%;
+    border: 3px solid rgb(90, 27, 238);
+    border-radius: 12px;
+    padding: 2vw;
+    background-color: rgb(90, 27, 238);
+}
+
+.showsignin-div1{
+  margin: auto;
+  width: 95%;
+  border: 3px solid rgb(90, 27, 238);
+  border-radius: 12px;
+  padding: 2vw;
+}
+
+.header-footer-inside-div2{
+    padding: 2vw;
+    position: relative;
+    bottom: 0px;
+    background: linear-gradient(45deg, rgba(90, 27, 238, 1) 15%, rgba(247, 188, 28, 1) 95%);
+    color:white;
+}
+
+.hr-tag{
+  background-color: rgb(90, 27, 238);
+  border-width:3px;
+}
+
+.profile-body hr, .register-div1 hr, .login-div1 hr{
+  background-color: white;
+}
+
+.search-div1{
+  margin: auto;
+  width: 95%;
+  border: 3px solid rgb(90, 27, 238);
+  height: 90vh;
+  overflow: auto;
+}
+
